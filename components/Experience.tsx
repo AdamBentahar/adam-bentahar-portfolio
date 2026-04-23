@@ -22,22 +22,14 @@ export default function Experience() {
           </h2>
         </motion.div>
 
-        <div style={{ position: "relative" }}>
+        <div className="relative">
           {/* Center line */}
           <motion.div
             initial={{ scaleY: 0 }}
             animate={inView ? { scaleY: 1 } : {}}
             transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            style={{
-              position: "absolute",
-              left: "50%",
-              top: 0,
-              bottom: 0,
-              width: 2,
-              background: "linear-gradient(to bottom, transparent, var(--border-accent), transparent)",
-              transform: "translateX(-50%)",
-              transformOrigin: "top",
-            }}
+            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 origin-top"
+            style={{ background: "linear-gradient(to bottom, transparent, var(--border-accent), transparent)" }}
           />
 
           {experience.map((exp, i) => {
@@ -48,16 +40,11 @@ export default function Experience() {
                 initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.2 + i * 0.2, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  marginBottom: 40,
-                  position: "relative",
-                }}
+                className="flex flex-col md:grid md:grid-cols-2 mb-10 relative"
               >
                 {/* Left content or spacer */}
-                {isLeft ? (
-                  <div style={{ paddingRight: 40 }}>
+                <div className={`md:pr-10 ${isLeft ? "ml-12 md:ml-0 mt-6 md:mt-0" : "hidden md:block"}`}>
+                  {isLeft && (
                     <motion.div
                       className="glass-card"
                       whileHover={{ y: -4, boxShadow: `0 0 30px ${exp.color}25` }}
@@ -65,13 +52,11 @@ export default function Experience() {
                     >
                       <ExperienceContent exp={exp} />
                     </motion.div>
-                  </div>
-                ) : (
-                  <div />
-                )}
+                  )}
+                </div>
 
                 {/* Center dot */}
-                <div style={{ position: "absolute", left: "50%", top: 24, transform: "translate(-50%, 0)", zIndex: 2 }}>
+                <div className="absolute left-4 md:left-1/2 top-6 md:top-6 -translate-x-1/2 z-10">
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={inView ? { scale: 1 } : {}}
@@ -88,8 +73,8 @@ export default function Experience() {
                 </div>
 
                 {/* Right content or spacer */}
-                {!isLeft ? (
-                  <div style={{ paddingLeft: 40 }}>
+                <div className={`md:pl-10 ${!isLeft ? "ml-12 md:ml-0 mt-6 md:mt-0" : "hidden md:block"}`}>
+                  {!isLeft && (
                     <motion.div
                       className="glass-card"
                       whileHover={{ y: -4, boxShadow: `0 0 30px ${exp.color}25` }}
@@ -97,22 +82,13 @@ export default function Experience() {
                     >
                       <ExperienceContent exp={exp} />
                     </motion.div>
-                  </div>
-                ) : (
-                  <div />
-                )}
+                  )}
+                </div>
               </motion.div>
             );
           })}
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          #experience .exp-grid { grid-template-columns: 1fr !important; }
-          #experience .timeline-line { left: 16px !important; }
-        }
-      `}</style>
     </section>
   );
 }

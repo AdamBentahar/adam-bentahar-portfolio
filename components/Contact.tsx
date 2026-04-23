@@ -60,8 +60,8 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1, duration: 0.6 }}
+          className="p-8 md:p-12"
           style={{
-            padding: "48px",
             borderRadius: 24,
             background: "linear-gradient(135deg, rgba(99,102,241,0.08), rgba(236,72,153,0.04))",
             border: "1px solid rgba(99,102,241,0.2)",
@@ -83,17 +83,15 @@ export default function Contact() {
             <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
               <motion.button
                 onClick={copyEmail}
-                className="btn-primary"
+                className="btn-primary flex items-center gap-2"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                style={{ display: "flex", alignItems: "center", gap: 8, cursor: "none" }}
               >
                 {copied ? "✓ Copied!" : "📋 Copy Email"}
               </motion.button>
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="btn-outline"
-                style={{ display: "flex", alignItems: "center", gap: 8 }}
+                className="btn-outline flex items-center gap-2"
               >
                 📧 Send Email
               </a>
@@ -102,7 +100,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Contact grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 24 }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -177,20 +175,6 @@ export default function Contact() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          #contact > div > div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-          }
-          #contact > div > div[style*="padding: 48px"] {
-            padding: 28px !important;
-          }
-        }
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
-        }
-      `}</style>
     </section>
   );
 }

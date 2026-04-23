@@ -24,7 +24,6 @@
 
 html {
   scroll-behavior: smooth;
-  cursor: none;
 }
 
 body {
@@ -35,41 +34,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom Cursor */
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--accent);
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, background 0.2s;
-  mix-blend-mode: screen;
-}
 
-.cursor-ring {
-  width: 36px;
-  height: 36px;
-  border: 2px solid rgba(99, 102, 241, 0.6);
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.12s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s;
-}
-
-.cursor-ring.hovering {
-  width: 56px;
-  height: 56px;
-  border-color: var(--accent);
-}
 
 /* Scrollbar */
 ::-webkit-scrollbar {
@@ -127,7 +92,7 @@ body {
   font-weight: 600;
   font-size: 15px;
   border: none;
-  cursor: none;
+  cursor: pointer;
   position: relative;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
@@ -147,7 +112,7 @@ body {
   font-weight: 600;
   font-size: 15px;
   border: 1px solid var(--border-accent);
-  cursor: none;
+  cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
@@ -213,7 +178,7 @@ body::before {
   font-weight: 500;
   color: var(--text-primary);
   transition: all 0.25s ease;
-  cursor: none;
+  cursor: default;
 }
 
 .skill-badge:hover {
@@ -240,7 +205,7 @@ body::before {
   font-weight: 500;
   color: var(--text-muted);
   text-decoration: none;
-  cursor: none;
+  cursor: pointer;
   transition: color 0.2s ease;
   position: relative;
 }
@@ -289,7 +254,7 @@ body::before {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   transition: all 0.25s ease;
-  cursor: none;
+  cursor: pointer;
   text-decoration: none;
   color: inherit;
 }
@@ -318,7 +283,7 @@ body::before {
   font-size: 13px;
   color: var(--text-muted);
   transition: all 0.2s ease;
-  cursor: none;
+  cursor: default;
 }
 
 .cert-item:hover {

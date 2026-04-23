@@ -30,7 +30,7 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {Object.entries(skills).map(([category, items], catIdx) => {
             const color = categoryColors[category] || "#6366F1";
             return (
@@ -119,13 +119,6 @@ export default function Skills() {
         </motion.div>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          #skills > div > div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

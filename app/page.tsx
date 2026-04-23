@@ -10,12 +10,12 @@ import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-const CustomCursor = dynamic(() => import("@/components/CustomCursor"), { ssr: false });
+const ScrollProgress = dynamic(() => import("@/components/CustomCursor"), { ssr: false });
 
 export default function Home() {
   return (
     <>
-      <CustomCursor />
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />

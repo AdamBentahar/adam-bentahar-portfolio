@@ -59,7 +59,7 @@ export default function Navbar() {
     >
       <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
         {/* Logo */}
-        <a href="#hero" style={{ textDecoration: "none", cursor: "none" }}>
+        <a href="#hero" style={{ textDecoration: "none", cursor: "pointer" }}>
           <span style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.5px" }}>
             <span className="gradient-text">AB</span>
             <span style={{ color: "rgba(255,255,255,0.4)", marginLeft: 2 }}>.</span>
@@ -67,7 +67,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Nav */}
-        <div style={{ display: "flex", gap: 32, alignItems: "center" }} className="hidden-mobile">
+        <div className="hidden md:flex gap-8 items-center">
           {navItems.map(({ label, href }) => (
             <a key={href} href={href} className="nav-link" style={{ color: active === href ? "var(--text-primary)" : undefined }}>
               {label}
@@ -100,15 +100,12 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
+          className="md:hidden p-2 text-white"
           style={{
-            display: "none",
             background: "none",
             border: "none",
-            cursor: "none",
-            padding: 8,
-            color: "var(--text-primary)",
+            cursor: "pointer",
           }}
-          className="mobile-menu-btn"
           aria-label="Toggle menu"
         >
           <div style={{ width: 24, height: 2, background: mobileOpen ? "transparent" : "currentColor", marginBottom: 6, transition: "0.2s" }} />
@@ -145,12 +142,7 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .hidden-mobile { display: none !important; }
-          .mobile-menu-btn { display: block !important; }
-        }
-      `}</style>
+      </AnimatePresence>
     </motion.nav>
   );
 }

@@ -75,7 +75,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, i) => (
             <motion.div
               key={project.id}
@@ -173,13 +173,6 @@ export default function Projects() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          #projects > div > div[style*="grid-template-columns"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

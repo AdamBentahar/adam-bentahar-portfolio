@@ -25,7 +25,7 @@ export default function Certifications() {
           </p>
         </motion.div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {certifications.map((group, groupIdx) => (
             <motion.div
               key={group.category}
@@ -98,18 +98,6 @@ export default function Certifications() {
         </motion.div>
       </div>
 
-      <style>{`
-        @media (max-width: 900px) {
-          #certifications > div > div[style*="repeat(3"] {
-            grid-template-columns: 1fr 1fr !important;
-          }
-        }
-        @media (max-width: 600px) {
-          #certifications > div > div[style*="repeat(3"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
