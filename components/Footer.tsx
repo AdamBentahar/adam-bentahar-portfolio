@@ -16,7 +16,7 @@ export default function Footer() {
         <p style={{ fontSize: 13, color: "var(--text-muted)" }}>
           © 2025 {personalInfo.name} · Built with Next.js & Framer Motion
         </p>
-        <a href="#hero" style={{ fontSize: 13, color: "var(--accent)", textDecoration: "none", cursor: "none" }}>
+        <a href="#hero" style={{ fontSize: 13, color: "var(--accent)", textDecoration: "none", cursor: "pointer" }}>
           Back to top ↑
         </a>
       </div>
